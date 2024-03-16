@@ -1,0 +1,16 @@
+{
+  "seller": [
+    {
+      "id": "34c8",
+      "name": "pranoj gonjari",
+      "email": "panu@gmail.com",
+      "password": "panu@123"
+    },
+    {
+      "id": "a7c9",
+      "name": "mayur ghadage",
+      "email": "mayurgmail.com",
+      "password": "mayur@123"
+    }
+  ]
+}
