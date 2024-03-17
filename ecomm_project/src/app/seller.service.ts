@@ -10,20 +10,18 @@ import { Router } from '@angular/router';
 export class SellerService {
 
   isSellerLoggedIn= new BehaviorSubject<boolean>(false);
-
-  constructor(private http: HttpClient, private router:Router) { }
-  userSignup(data: signUp) {
-    return this.http.post('http://localhost:3000/seller',
-      data,
-      { observe: 'response' }).subscribe((result) => {
-        console.warn(result)
-        if (result) {
-           this.isSellerLoggedIn.next(true)
-           localStorage.setItem('seller',JSON.stringify(result))
-           this.router.navigate(['seller-home'])
-        }
-      })
-  }
+  constructor(private http:HttpClient, private router:Router) { }
+  userSignUp(data:signUp){
+    this.http.post('http://localhost:3000/seller',
+    data,
+    {observe:'response'}).subscribe((result)=>{
+      console.warn(result)
+      if(result){
+        localStorage.setItem('seller',JSON.stringify(result.body))
+        this.router.navigate(['seller-home'])
+      }
+    })
+  } 
   reloadSeller(){
     if(localStorage.getItem('seller')){
       this.isSellerLoggedIn.next(true)

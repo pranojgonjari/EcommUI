@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class SellerAuthComponent implements OnInit {
   constructor(private seller: SellerService) { }
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.seller.reloadSeller()
   }
   signUp(data: signUp): void {
-    console.warn(data)
-    this.seller.userSignup(data);
+    console.warn(data);
+    this.seller.userSignUp(data);
   }
 }
