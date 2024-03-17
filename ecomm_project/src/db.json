@@ -11,6 +11,30 @@
       "name": "mayur ghadage",
       "email": "mayurgmail.com",
       "password": "mayur@123"
+    },
+    {
+      "id": "8209",
+      "name": "Dyani Lohar",
+      "password": "Dyani@123",
+      "email": "dyani@gmail.com"
+    },
+    {
+      "id": "f084",
+      "name": "rahul",
+      "password": "rahul@123",
+      "email": "rahul@gmail.com"
+    },
+    {
+      "id": "b320",
+      "name": "shubham",
+      "password": "shubu@123",
+      "email": "shubu@gmail.com"
+    },
+    {
+      "id": "2062",
+      "name": "shubham",
+      "password": "shubu@123",
+      "email": "shubu@gmail.com"
     }
   ]
 }
