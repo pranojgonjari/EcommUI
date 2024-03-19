@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { signUp } from './data-type';
+import { login, signUp } from './data-type';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -9,23 +9,30 @@ import { Router } from '@angular/router';
 })
 export class SellerService {
 
-  isSellerLoggedIn= new BehaviorSubject<boolean>(false);
-  constructor(private http:HttpClient, private router:Router) { }
-  userSignUp(data:signUp){
+  isSellerLoggedIn = new BehaviorSubject<boolean>(false);
+
+  constructor(private http: HttpClient, private router: Router) { }
+
+  userSignUp(data: signUp) {
     this.http.post('http://localhost:3000/seller',
-    data,
-    {observe:'response'}).subscribe((result)=>{
-      console.warn(result)
-      if(result){
-        localStorage.setItem('seller',JSON.stringify(result.body))
-        this.router.navigate(['seller-home'])
-      }
-    })
-  } 
-  reloadSeller(){
-    if(localStorage.getItem('seller')){
-      this.isSellerLoggedIn.next(true)
-      this.router.navigate(['seller-home'])
+      data,
+      { observe: 'response' }).subscribe((result) => {
+        console.warn(result)
+        if (result) {
+          this.isSellerLoggedIn.next(true); 
+          localStorage.setItem('seller', JSON.stringify(result.body));
+          this.router.navigate(['seller-home']);
+        }
+      });
+  }
+
+  reloadSeller() {
+    if (localStorage.getItem('seller')) {
+      this.isSellerLoggedIn.next(true);
+      this.router.navigate(['seller-auth']);//'seller-home'
     }
+  }
+  userLogin(data:login){
+    this.http.get('http://localhost:3000/seller')
   }
 }
